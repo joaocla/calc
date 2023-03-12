@@ -10,127 +10,68 @@ namespace Calculadoraora
             InitializeComponent();
         }
 
+        private void SetResult(int eventNumber)
+        {
+            if (resetTxt)
+            {
+                txt_result.Text = eventNumber.ToString();
+                resetTxt = false;
+            }
+            else
+            {
+                txt_result.Text += eventNumber.ToString();
+            }
+        }
+
         private void btn_0_Click(object sender, EventArgs e)
         {
             if (txt_result.Text != "0")
-                txt_result.Text += "0";
+                SetResult(0);
         }
 
         private void btn_1_Click(object sender, EventArgs e)
         {
-            if (resetTxt)
-            {
-                txt_result.Text = "1";
-                resetTxt = false;
-            }
-            else
-            {
-                txt_result.Text += "1";
-            }
+            SetResult(1);
         }
 
         private void btn_2_Click(object sender, EventArgs e)
         {
-            if (resetTxt)
-            {
-                txt_result.Text = "2";
-                resetTxt = false;
-            }
-            else
-            {
-                txt_result.Text += "2";
-            }
+            SetResult(2);
         }
 
         private void btn_3_Click(object sender, EventArgs e)
         {
-            if (resetTxt)
-            {
-                txt_result.Text = "3";
-                resetTxt = false;
-            }
-            else
-            {
-                txt_result.Text += "3";
-            }
+            SetResult(3);
         }
 
         private void btn_4_Click(object sender, EventArgs e)
         {
-            if (resetTxt)
-            {
-                txt_result.Text = "4";
-                resetTxt = false;
-            }
-            else
-            {
-                txt_result.Text += "4";
-            }
+            SetResult(4);
         }
 
         private void btn_5_Click(object sender, EventArgs e)
         {
-            if (resetTxt)
-            {
-                txt_result.Text = "5";
-                resetTxt = false;
-            }
-            else
-            {
-                txt_result.Text += "5";
-            }
+            SetResult(5);
         }
 
         private void btn_6_Click(object sender, EventArgs e)
         {
-            if (resetTxt)
-            {
-                txt_result.Text = "6";
-                resetTxt = false;
-            }
-            else
-            {
-                txt_result.Text += "6";
-            }
+            SetResult(6);
         }
 
         private void btn_7_Click(object sender, EventArgs e)
         {
-            if (resetTxt)
-            {
-                txt_result.Text = "7";
-                resetTxt = false;
-            }
-            else
-            {
-                txt_result.Text += "7";
-            }
+            SetResult(7);
         }
 
         private void btn_8_Click(object sender, EventArgs e)
         {
-            if (resetTxt)
-            {
-                txt_result.Text = "8";
-                resetTxt = false;
-            }
-            else
-            {
-                txt_result.Text += "8";
-            }
+            SetResult(8);
         }
 
         private void btn_9_Click(object sender, EventArgs e)
         {
-            if (resetTxt)
-            {
-                txt_result.Text = "9";
-                resetTxt = false;
-            }
-            else
-            {
-                txt_result.Text += "9";
-            }
+            SetResult(9);
         }
 
         private void txt_result_TextChanged(object sender, EventArgs e)
