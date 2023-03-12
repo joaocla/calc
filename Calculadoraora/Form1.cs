@@ -23,6 +23,84 @@ namespace Calculadoraora
             }
         }
 
+        private void Calcula(string operacao = "=")
+        {
+            if (!string.IsNullOrEmpty(txt_result.Text))
+            {
+                if (operacao != "=")
+                {
+                    operation = string.IsNullOrEmpty(operation) ? operacao : operation;
+
+                    switch (operation)
+                    {
+                        case "+":
+                            store += Convert.ToDouble(txt_result.Text);
+                            break;
+
+                        case "-":
+                            if (store == 0)
+                                store = Convert.ToDouble(txt_result.Text);
+                            else
+                                store -= Convert.ToDouble(txt_result.Text);
+                            break;
+
+                        case "*":
+                            if (store == 0)
+                                store = Convert.ToDouble(txt_result.Text);
+                            else
+                                store *= Convert.ToDouble(txt_result.Text);
+                            break;
+
+                        case "/":
+                            if (store == 0)
+                                store = Convert.ToDouble(txt_result.Text);
+                            else
+                                store /= Convert.ToDouble(txt_result.Text);
+                            break;
+
+                        default:
+                            break;
+                    }
+
+                    operation = operacao;
+                    lbl_store.Text = store.ToString();
+                    txt_result.Text = "";
+                }
+                else
+                {
+                    double result = 0;
+                    switch (operation)
+                    {
+                        case "+":
+                            result = store + Convert.ToDouble(txt_result.Text);
+                            txt_result.Text = result.ToString();
+                            break;
+                        case "-":
+                            result = store - Convert.ToDouble(txt_result.Text);
+                            txt_result.Text = result.ToString();
+                            break;
+
+                        case "*":
+                            result = store * Convert.ToDouble(txt_result.Text);
+                            txt_result.Text = result.ToString();
+                            break;
+
+                        case "/":
+                            result = store / Convert.ToDouble(txt_result.Text);
+                            txt_result.Text = result.ToString();
+                            break;
+
+                        default:
+                            break;
+                    }
+                    lbl_store.Text = "";
+                    store = 0;
+                    operation = "";
+                    resetTxt = true;
+                }
+            }
+        }
+
         private void btn_0_Click(object sender, EventArgs e)
         {
             if (txt_result.Text != "0")
@@ -82,50 +160,48 @@ namespace Calculadoraora
 
         private void btn_sum_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txt_result.Text))
-            {
-                operation = "+";
-                store += Convert.ToDouble(txt_result.Text);
-                lbl_store.Text = store.ToString();
-                txt_result.Text = "";
-            }
+            Calcula("+");
         }
 
         private void btn_sub_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txt_result.Text))
-            {
-                operation = "-";
-                if (store == 0)
-                    store = Convert.ToDouble(txt_result.Text);
-                else
-                    store -= Convert.ToDouble(txt_result.Text);
-                lbl_store.Text = store.ToString();
-                txt_result.Text = "";
-            }
+            Calcula("-");
         }
 
         private void btn_result_Click(object sender, EventArgs e)
         {
+            Calcula();
+        }
 
-            double result = 0;
-            switch (operation)
-            {
-                case "+":
-                    result = store + Convert.ToDouble(txt_result.Text);
-                    txt_result.Text = result.ToString();
-                    break;
-                case "-":
-                    result = store - Convert.ToDouble(txt_result.Text);
-                    txt_result.Text = result.ToString();
-                    break;
-                default:
-                    break;
-            }
+        private void btn_apagaTxt_Click(object sender, EventArgs e)
+        {
+            txt_result.Text = "0";
+        }
+
+        private void btn_zeraCalc_Click(object sender, EventArgs e)
+        {
             lbl_store.Text = "";
             store = 0;
             operation = "";
             resetTxt = true;
+        }
+
+        private void btn_excluiCaracter_Click(object sender, EventArgs e)
+        {
+            if (txt_result.Text.Length > 1)
+                txt_result.Text = txt_result.Text.Substring(0, txt_result.Text.Length - 1);
+            else
+                txt_result.Text = "0";
+        }
+
+        private void btn_multi_Click(object sender, EventArgs e)
+        {
+            Calcula("*");
+        }
+
+        private void btn_div_Click(object sender, EventArgs e)
+        {
+            Calcula("/");
         }
     }
 }
