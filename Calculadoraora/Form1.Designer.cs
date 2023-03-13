@@ -60,7 +60,6 @@
             this.txt_result.TabIndex = 0;
             this.txt_result.Text = "0";
             this.txt_result.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txt_result.TextChanged += new System.EventHandler(this.txt_result_TextChanged);
             // 
             // btn_9
             // 
@@ -244,6 +243,7 @@
             this.btn_com.TabIndex = 28;
             this.btn_com.Text = ",";
             this.btn_com.UseVisualStyleBackColor = true;
+            this.btn_com.Click += new System.EventHandler(this.btn_com_Click);
             // 
             // btn_apagaTxt
             // 
