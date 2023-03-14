@@ -60,6 +60,7 @@
             this.txt_result.TabIndex = 0;
             this.txt_result.Text = "0";
             this.txt_result.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_result.TextChanged += new System.EventHandler(this.txt_result_TextChanged);
             // 
             // btn_9
             // 
