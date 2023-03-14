@@ -209,7 +209,7 @@ namespace Calculadoraora
 
         private void txt_result_TextChanged(object sender, EventArgs e)
         {
-            if (txt_result.Text != "0," && !string.IsNullOrEmpty(txt_result.Text))
+            if (!txt_result.Text.Contains(',') && !string.IsNullOrEmpty(txt_result.Text))
                 txt_result.Text = Convert.ToDouble(txt_result.Text).ToString();
         }
     }
